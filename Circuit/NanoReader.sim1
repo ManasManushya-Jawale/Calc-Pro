@@ -1,0 +1,23 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="KeyPad" CircId="KeyPad-1" mainComp="false" Show_id="false" Show_Val="false" Pos="-184,288" rotation="0" hflip="1" vflip="1" label="KeyPad-1" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="4" Cols="3" Key_Labels="123456789*0#" />
+
+<item itemtype="Subcircuit" CircId="Nano-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,276" rotation="0" hflip="1" vflip="1" label="Nano-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="../NanoReader.ino/build/arduino.avr.nano/NanoReader.ino.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="1" />
+</item>
+
+<item itemtype="Connector" uid="Connector-3" startpinid="KeyPad-1-Pin2" endpinid="Nano-2-2" pointList="-136,328,-132,328,-132,324,-100,324" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="KeyPad-1-Pin3" endpinid="Nano-2-3" pointList="-136,344,-128,344,-128,332,-100,332" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="KeyPad-1-Pin6" endpinid="Nano-2-4" pointList="-152,360,-124,360,-124,340,-100,340" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="KeyPad-1-Pin5" endpinid="Nano-2-5" pointList="-168,360,-168,364,-120,364,-120,348,-100,348" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="KeyPad-1-Pin4" endpinid="Nano-2-6" pointList="-184,360,-184,368,-116,368,-116,356,-100,356" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="KeyPad-1-Pin1" endpinid="Nano-2-1" pointList="-136,312,-128,312,-128,292,-100,292" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="KeyPad-1-Pin0" endpinid="Nano-2-0" pointList="-136,296,-136,300,-100,300" />
+
+</circuit>

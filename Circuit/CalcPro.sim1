@@ -1,0 +1,71 @@
+<circuit version="1.1.0-SR1" rev="" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-48,-12" rotation="0" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../build/arduino.avr.uno/CalcPro.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+</item>
+
+<item itemtype="KeyPad" CircId="KeyPad-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-152,-40" rotation="0" hflip="1" vflip="1" label="KeyPad-4" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="4" Cols="4" Key_Labels="123+456-789*.0&#x3D/" />
+
+<item itemtype="I2CToParallel" CircId="I2CToParallel-27" mainComp="false" Show_id="false" Show_Val="false" Pos="-276,100" rotation="-360" hflip="-1" vflip="1" label="I2CToParallel-27" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Control_Code="32" Frequency="100 _kHz" />
+
+<item itemtype="Hd44780" CircId="Hd44780-12" mainComp="false" Show_id="true" Show_Val="false" Pos="-408,52" rotation="0" hflip="1" vflip="1" label="Hd44780-12" idLabPos="70,-82" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="2" Cols="16" />
+
+<item itemtype="Subcircuit" CircId="Nano-28" mainComp="false" Show_id="true" Show_Val="false" Pos="-176,88" rotation="0" hflip="-1" vflip="1" label="Nano-28" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="../NanoReader.ino/build/arduino.avr.nano/NanoReader.ino.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="false" SerialMon="-1" />
+</item>
+
+<item itemtype="KeyPad" CircId="KeyPad-29" mainComp="false" Show_id="false" Show_Val="false" Pos="-240,244" rotation="0" hflip="1" vflip="1" label="KeyPad-29" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="4" Cols="4" Key_Labels="()" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="KeyPad-4-Pin6" endpinid="Uno-1-3" pointList="-120,32,-120,60,-84,60,-84,28,-40,28" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="KeyPad-4-Pin5" endpinid="Uno-1-4" pointList="-136,32,-136,64,-80,64,-80,36,-40,36" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="KeyPad-4-Pin4" endpinid="Uno-1-5" pointList="-152,32,-152,68,-76,68,-76,44,-40,44" />
+
+<item itemtype="Connector" uid="Connector-78" startpinid="KeyPad-4-Pin7" endpinid="Uno-1-2" pointList="-104,32,-104,56,-88,56,-88,20,-40,20" />
+
+<item itemtype="Connector" uid="Connector-101" startpinid="KeyPad-4-Pin0" endpinid="Uno-1-9" pointList="-88,-32,-56,-32,-56,84,-40,84" />
+
+<item itemtype="Connector" uid="Connector-102" startpinid="KeyPad-4-Pin1" endpinid="Uno-1-8" pointList="-88,-16,-60,-16,-60,76,-40,76" />
+
+<item itemtype="Connector" uid="Connector-103" startpinid="KeyPad-4-Pin2" endpinid="Uno-1-7" pointList="-88,0,-64,0,-64,60,-40,60" />
+
+<item itemtype="Connector" uid="Connector-104" startpinid="KeyPad-4-Pin3" endpinid="Uno-1-6" pointList="-88,16,-68,16,-68,52,-40,52" />
+
+<item itemtype="Connector" uid="Connector-39" startpinid="Hd44780-12-PinRS" endpinid="I2CToParallel-27-out0" pointList="-392,60,-392,76,-300,76" />
+
+<item itemtype="Connector" uid="Connector-105" startpinid="I2CToParallel-27-in0" endpinid="Uno-1-A4" pointList="-252,76,-188,76,-188,-84,112,-84,112,12,104,12" />
+
+<item itemtype="Connector" uid="Connector-69" startpinid="Uno-1-A5" endpinid="I2CToParallel-27-in1" pointList="104,4,104,-72,-180,-72,-180,84,-252,84" />
+
+<item itemtype="Connector" uid="Connector-47" startpinid="Hd44780-12-dataPin7" endpinid="I2CToParallel-27-out7" pointList="-312,60,-312,132,-300,132" />
+
+<item itemtype="Connector" uid="Connector-46" startpinid="Hd44780-12-dataPin6" endpinid="I2CToParallel-27-out6" pointList="-320,60,-320,124,-300,124" />
+
+<item itemtype="Connector" uid="Connector-45" startpinid="Hd44780-12-dataPin5" endpinid="I2CToParallel-27-out5" pointList="-328,60,-328,116,-300,116" />
+
+<item itemtype="Connector" uid="Connector-42" startpinid="Hd44780-12-dataPin4" endpinid="I2CToParallel-27-out4" pointList="-336,60,-336,108,-300,108" />
+
+<item itemtype="Connector" uid="Connector-41" startpinid="Hd44780-12-PinEn" endpinid="I2CToParallel-27-out2" pointList="-376,60,-376,92,-300,92" />
+
+<item itemtype="Connector" uid="Connector-128" startpinid="Hd44780-12-PinRW" endpinid="I2CToParallel-27-out1" pointList="-384,60,-384,84,-300,84" />
+
+<item itemtype="Connector" uid="Connector-129" startpinid="Nano-28-1" endpinid="Uno-1-0" pointList="-184,104,-72,104,-72,4,-40,4" />
+
+<item itemtype="Connector" uid="Connector-130" startpinid="KeyPad-29-Pin0" endpinid="Nano-28-2" pointList="-176,252,-168,252,-168,136,-184,136" />
+
+<item itemtype="Connector" uid="Connector-135" startpinid="KeyPad-29-Pin1" endpinid="Nano-28-3" pointList="-176,268,-164,268,-164,144,-184,144" />
+
+<item itemtype="Connector" uid="Connector-140" startpinid="KeyPad-29-Pin2" endpinid="Nano-28-4" pointList="-176,284,-160,284,-160,152,-184,152" />
+
+<item itemtype="Connector" uid="Connector-141" startpinid="KeyPad-29-Pin3" endpinid="Nano-28-5" pointList="-176,300,-156,300,-156,160,-184,160" />
+
+<item itemtype="Connector" uid="Connector-142" startpinid="KeyPad-29-Pin7" endpinid="Nano-28-9" pointList="-192,316,-152,316,-152,192,-184,192" />
+
+<item itemtype="Connector" uid="Connector-143" startpinid="KeyPad-29-Pin6" endpinid="Nano-28-8" pointList="-208,316,-208,324,-148,324,-148,184,-184,184" />
+
+<item itemtype="Connector" uid="Connector-144" startpinid="Nano-28-7" endpinid="KeyPad-29-Pin5" pointList="-184,176,-144,176,-144,328,-224,328,-224,316" />
+
+<item itemtype="Connector" uid="Connector-145" startpinid="KeyPad-29-Pin4" endpinid="Nano-28-6" pointList="-240,316,-240,332,-140,332,-140,168,-184,168" />
+
+</circuit>
