@@ -51,7 +51,7 @@ void printAt(byte col, byte row, const char* msg) {
 
 void printFixed(byte row, const char* msg) {
   // Pad or truncate to exactly 16 columns
-  byte len = strlen(msg);
+  size_t len = strlen(msg);
   lcd.setCursor(0, row);
   for (byte i = 0; i < LCD_COLS; i++) {
     char ch = (i < len) ? msg[i] : ' ';
@@ -60,23 +60,10 @@ void printFixed(byte row, const char* msg) {
 }
 
 void printRightAligned(byte row, const char* msg) {
-  byte len = strlen(msg);
+  size_t len = strlen(msg);
   byte col = (len >= LCD_COLS) ? 0 : (LCD_COLS - len);
   clearLine(row);
   printAt(col, row, msg);
-}
-
-void printToLCD(const char msg[]) {
-  for (byte i = 0; msg[i] != '\0'; i++) {
-    lcd.setCursor(pos[0], pos[1]);
-    lcd.print(msg[i]);
-    pos[0]++;
-    if (pos[0] >= LCD_COLS) {
-      pos[0] = 0;
-      pos[1]++;
-      if (pos[1] >= LCD_ROWS) pos[1] = 0;
-    }
-  }
 }
 
 void error(const char message[]) {
@@ -90,23 +77,13 @@ void error(const char message[]) {
 
 // ------------------- Array removal -------------------
 
-byte OperationLimit = 32;
+const byte OperationLimit = 32;
 
 bool isNum(char ch) {
     return (ch >= '0' && ch <= '9');
 }
-char *substring(const char *src, int start, int len) {
-    if (start < 0 || len < 0 || start + len > strlen(src)) {
-        return NULL; // invalid range
-    }
-    char *dest = malloc(len + 1); // +1 for null terminator
-    if (!dest) return NULL; // allocation failed
-    strncpy(dest, src + start, len);
-    dest[len] = '\0';
-    return dest;
-}
 void removeFromArr(void *arr, byte *size, byte index, size_t elemSize) {
-    if (index >= *size || index < 0) return;
+    if (index >= *size) return;
     char *base = (char *)arr;
     memmove(base + index * elemSize,
             base + (index + 1) * elemSize,
@@ -115,6 +92,10 @@ void removeFromArr(void *arr, byte *size, byte index, size_t elemSize) {
 }
 
 float evaluateEquation(float nums[], byte oprs[], byte l) {
+    if (l == 0) {
+        return nums[0];
+    }
+
     // Find highest-precedence op: 4(/),3(*),2(+),1(-)
     byte operationIndex = 0;
     for (byte p = 4; p >= 1; p--) {
@@ -274,7 +255,7 @@ void loop() {
 
     if (key == '=') {
       // Guard: terminate buffer for safe tokenization
-      if (equationI >= 0 && equationI < 32) equation[equationI] = '\0';
+      if (equationI < sizeof(equation)) equation[equationI] = '\0';
 
       byte numI = 0;
       byte oprI = 0;
@@ -337,4 +318,3 @@ void loop() {
     if (ch) appendInput(ch);
   }
 }
-
